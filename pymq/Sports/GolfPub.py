@@ -17,11 +17,11 @@ class GolfPublisher:
                 "DEV.APP.SVRCONN", 
                 "localhost(1414)",
                 user="app", 
-                password="password"
+                password="passw0rd"
             )
             # Open topic for publishing
-            self.topic = ibmmq.Topic(self.qmgr, "SPORTS.GOLF")
-            print("✅ Connected to QM_GOLF, topic: sports/golf")
+            self.topic = ibmmq.Topic(self.qmgr, "Sports/Football")
+            print("✅ Connected to QM_GOLF, topic: SPORTS.FOOTBALL")
         except Exception as e:
             print(f"❌ Connection failed: {e}")
             raise
@@ -70,3 +70,4 @@ if __name__ == "__main__":
         publisher.run(num_messages=10)
     finally:
         publisher.close()
+

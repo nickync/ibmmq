@@ -2,8 +2,8 @@ import ibmmq
 import json
 import time
 
-class FootballSub:
-    def __init__(self, queue_name="FOOTBALL.NEWS.Q"):
+class TennisSub:
+    def __init__(self, queue_name="TENNIS.NEWS.Q"):
         self.queue_name = queue_name
         self.qmgr = None
         self.queue = None
@@ -14,14 +14,14 @@ class FootballSub:
         """ Connect to QM_FOOTBALL and open the queue for subscription """
         try:
             self.qmgr = ibmmq.connect(
-                "QM_FOOTBALL",
+                "QM_TENNIS",
                 'DEV.APP.SVRCONN',
-                "localhost(1415)",
+                "localhost(1416)",
                 user="app",
                 password="passw0rd"
             )
             self.queue = ibmmq.Queue(self.qmgr, self.queue_name)
-            print(f"✅ Connected to QM_FOOTBALL, queue: {self.queue_name}")
+            print(f"✅ Connected to QM_TENNIS, queue: {self.queue_name}")
         except Exception as e:
             print(f"❌ Connection failed: {e}")
             raise
@@ -89,7 +89,7 @@ class FootballSub:
         print("🔌 Disconnected from QM_FOOTBALL")
 
 if __name__ == "__main__":
-    subscriber = FootballSub()
+    subscriber = TennisSub()
     try:
         # Check if there are any messages first
         print("🔍 Checking for existing messages...")
