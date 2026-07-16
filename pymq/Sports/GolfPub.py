@@ -20,8 +20,8 @@ class GolfPublisher:
                 password="passw0rd"
             )
             # Open topic for publishing
-            self.topic = ibmmq.Topic(self.qmgr, "Sports/Football")
-            print("✅ Connected to QM_GOLF, topic: SPORTS.FOOTBALL")
+            self.topic = ibmmq.Topic(self.qmgr, "SPORTS.FOOTBALL")
+            print("✅ Connected to QM_GOLF, topic: sports/FOOLTBALL")
         except Exception as e:
             print(f"❌ Connection failed: {e}")
             raise
